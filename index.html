@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Live Bands</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #table-container {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            font-family: 'Roboto', sans-serif;
+            max-width: 700px;
+            overflow-x: auto;
+        }
+
+        #title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        #bandTable th,
+        #bandTable td {
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="table-container">
+        <h1 id="title">My Live Bands</h1>
+        <h3>Here's a list of some awesome bands I've had the pleasure of seeing live:*</h3>
+
+        <center>
+            <table id="bandTable">
+                <thead>
+                    <tr>
+                        <th>Band Name</th>
+                    </tr>
+                </thead>
+                <tbody id="bandData">
+                    <!-- Data will be loaded here -->
+                </tbody>
+            </table>
+        </center>
+
+        <br>
+        *These are the bands that I want to stand out,
+        but they're not the only events I've attended.
+        Stay tuned for more updates! 🙂
+    </div>
+
+
+    <!-- Include the jQuery and DataTables JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <!-- JavaScript object with band data -->
+    <script>
+        const bands = [
+            { "Band Name": "<a href=https://weedcraft.bandcamp.com/>Weedcraft</a>" },
+            { "Band Name": "System of a down" },
+            { "Band Name": "Iron Maiden" },
+            { "Band Name": "Depeche mode" },
+            { "Band Name": "<a href=https://belzebong.bandcamp.com/>Belzebong</a>" },
+            { "Band Name": "<a href=https://wazband.bandcamp.com/>Wąż</a>" },
+            { "Band Name": "<a href=https://sunnataofficial.bandcamp.com/>Sunnata</a>" },
+            { "Band Name": "<a href=https://dopelord.bandcamp.com/>Dopelord</a>" },
+            { "Band Name": "<a href=https://ceremonylong.bandcamp.com/>Ceremony Long</a>" },
+            { "Band Name": "<a href=https://hermopolis.bandcamp.com/>Hermopolis</a>" },
+
+        ];
+        const table = $('#bandTable').DataTable({
+            "columnDefs": [{ width: 200, targets: 0 }],
+            "fixedColumns": true,
+            "paging": false,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": 300,
+
+            "paging": false, // Disable pagination
+            "searching": false, // Disable search
+            "data": bands,
+            "columns": [
+                { "data": "Band Name" },
+            ],
+            "info": false,
+        });
+    </script>
+</body>
+
+</html>
