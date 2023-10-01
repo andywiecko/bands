@@ -55,13 +55,14 @@
 <body>
     <div id="table-container">
         <h1 id="title">My Live Bands</h1>
-        <h3>Here's a list of some awesome bands I've had the pleasure of seeing live:*</h3>
+        <h3>Here's a list of some awesome bands I've had the pleasure of seeing live:</h3>
 
         <center>
             <table id="bandTable">
                 <thead>
                     <tr>
                         <th>Band Name</th>
+                        <th>Stars</th>
                     </tr>
                 </thead>
                 <tbody id="bandData">
@@ -70,10 +71,13 @@
             </table>
         </center>
 
-        <br>
-        *These are the bands that I want to stand out,
-        but they're not the only events I've attended.
-        Stay tuned for more updates! 🙂
+        <ul>
+            <li>⭐⭐⭐: "Must see!"</li>
+            <li>⭐⭐: "Awesome!"</li>
+            <li>⭐: "Great!"</li>
+            <li>No Stars: "Enjoyed the performance without rating. Every band brings its own unique energy, and not giving stars doesn't mean it wasn't a memorable experience."</li>
+        </ul>
+
     </div>
 
 
@@ -84,17 +88,22 @@
     <!-- JavaScript object with band data -->
     <script>
         const bands = [
-            { "Band Name": "<a href=https://weedcraft.bandcamp.com/>Weedcraft</a>" },
-            { "Band Name": "System of a down" },
-            { "Band Name": "Iron Maiden" },
-            { "Band Name": "Depeche mode" },
-            { "Band Name": "<a href=https://belzebong.bandcamp.com/>Belzebong</a>" },
-            { "Band Name": "<a href=https://wazband.bandcamp.com/>Wąż</a>" },
-            { "Band Name": "<a href=https://sunnataofficial.bandcamp.com/>Sunnata</a>" },
-            { "Band Name": "<a href=https://dopelord.bandcamp.com/>Dopelord</a>" },
-            { "Band Name": "<a href=https://ceremonylong.bandcamp.com/>Ceremony Long</a>" },
-            { "Band Name": "<a href=https://hermopolis.bandcamp.com/>Hermopolis</a>" },
-
+            { "Band Name": "<a href=https://weedcraft.bandcamp.com/>Weedcraft</a>", "Stars": "⭐⭐⭐" },
+            { "Band Name": "System of a down", "Stars": "⭐⭐" },
+            { "Band Name": "Iron Maiden", "Stars": "⭐" },
+            { "Band Name": "Depeche mode", "Stars": "⭐⭐" },
+            { "Band Name": "<a href=https://belzebong.bandcamp.com/>Belzebong</a>", "Stars": "⭐⭐⭐" },
+            { "Band Name": "<a href=https://wazband.bandcamp.com/>Wąż</a>", "Stars": "⭐⭐⭐" },
+            { "Band Name": "<a href=https://sunnataofficial.bandcamp.com/>Sunnata</a>", "Stars": "⭐" },
+            { "Band Name": "<a href=https://dopelord.bandcamp.com/>Dopelord</a>", "Stars": "⭐⭐" },
+            { "Band Name": "<a href=https://ceremonylong.bandcamp.com/>Ceremony Long</a>", "Stars": "⭐⭐⭐" },
+            { "Band Name": "<a href=https://hermopolis.bandcamp.com/>Hermopolis</a>", "Stars": "⭐⭐" },
+            { "Band Name": "<a href=https://pradmusic.bandcamp.com/>Prąd</a>", "Stars": "" },
+            { "Band Name": "<a href=https://solartrip.bandcamp.com/>Solar Trip</a>", "Stars": "⭐⭐⭐" },
+            { "Band Name": "<a href=https://maruntuka.bandcamp.com/>Maruntuka</a>", "Stars": "" },
+            { "Band Name": "<a href=https://munband.bandcamp.com/>MuN</a>", "Stars": "" },
+            { "Band Name": "<a href=https://weird.bandcamp.com/>Weird Tales</a>", "Stars": "" },
+            { "Band Name": "<a href=https://hoggod.bandcamp.com/>Hoggod</a>", "Stars": "" },
         ];
         const table = $('#bandTable').DataTable({
             "columnDefs": [{ width: 200, targets: 0 }],
@@ -109,6 +118,7 @@
             "data": bands,
             "columns": [
                 { "data": "Band Name" },
+                { "data": "Stars" },
             ],
             "info": false,
         });
