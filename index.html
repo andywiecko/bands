@@ -61,6 +61,7 @@
             <table id="bandTable">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Band Name</th>
                         <th>Stars</th>
                     </tr>
@@ -71,11 +72,13 @@
             </table>
         </center>
 
+        <b>Key:</b>
         <ul>
             <li>⭐⭐⭐: "Must see!"</li>
             <li>⭐⭐: "Awesome!"</li>
             <li>⭐: "Great!"</li>
             <li>No Stars: "Enjoyed the performance without rating. Every band brings its own unique energy, and not giving stars doesn't mean it wasn't a memorable experience."</li>
+            <li>❤️: "Best loved and special"</li>
         </ul>
 
     </div>
@@ -88,34 +91,34 @@
     <!-- JavaScript object with band data -->
     <script>
         const bands = [
-            { "Band Name": "<a href=https://weedcraft.bandcamp.com/>Weedcraft</a>", "Stars": "⭐⭐⭐" },
-            { "Band Name": "System of a down", "Stars": "⭐⭐" },
-            { "Band Name": "Iron Maiden", "Stars": "⭐" },
-            { "Band Name": "Depeche mode", "Stars": "⭐⭐" },
-            { "Band Name": "<a href=https://belzebong.bandcamp.com/>Belzebong</a>", "Stars": "⭐⭐⭐" },
-            { "Band Name": "<a href=https://wazband.bandcamp.com/>Wąż</a>", "Stars": "⭐⭐⭐" },
-            { "Band Name": "<a href=https://sunnataofficial.bandcamp.com/>Sunnata</a>", "Stars": "⭐" },
-            { "Band Name": "<a href=https://dopelord.bandcamp.com/>Dopelord</a>", "Stars": "⭐⭐" },
-            { "Band Name": "<a href=https://ceremonylong.bandcamp.com/>Ceremony Long</a>", "Stars": "⭐⭐⭐" },
-            { "Band Name": "<a href=https://hermopolis.bandcamp.com/>Hermopolis</a>", "Stars": "⭐⭐" },
-            { "Band Name": "<a href=https://pradmusic.bandcamp.com/>Prąd</a>", "Stars": "" },
-            { "Band Name": "<a href=https://solartrip.bandcamp.com/>Solar Trip</a>", "Stars": "⭐⭐⭐" },
-            { "Band Name": "<a href=https://maruntuka.bandcamp.com/>Maruntuka</a>", "Stars": "" },
-            { "Band Name": "<a href=https://munband.bandcamp.com/>MuN</a>", "Stars": "" },
-            { "Band Name": "<a href=https://weird.bandcamp.com/>Weird Tales</a>", "Stars": "" },
-            { "Band Name": "<a href=https://hoggod.bandcamp.com/>Hoggod</a>", "Stars": "" },
-            { "Band Name": "Vader", "Stars": "" },
-            { "Band Name": "Frontside", "Stars": "" },
-            { "Band Name": "<a href=https://festivaly.eu/pl/artysci/astral-nomad/1488132>Astral Nomad</a>", "Stars": "" },
-            { "Band Name": "<a href=https://occulthandorder.bandcamp.com/>Occult Hand Order</a>", "Stars": "⭐⭐⭐" },
-            { "Band Name": "<a href=https://jarzmo.bandcamp.com/>Jarzmo</a>", "Stars": "⭐⭐" },
-            { "Band Name": "<a href=https://moonstonedoom.bandcamp.com/>Moonstone</a>", "Stars": "⭐" },
-            { "Band Name": "<a href=https://thehowlingeye.bandcamp.com/>The Howling Eye</a>", "Stars": "" },
-            { "Band Name": "<a href=https://piranhamusicpl.bandcamp.com/album/taxi-caveman/>Taxi Caveman</a>", "Stars": "" },
+            { "fav": "❤️", "Band Name": "<a href=https://weedcraft.bandcamp.com/>Weedcraft</a>", "Stars": "⭐⭐⭐" },
+            { "fav": " ", "Band Name": "System of a down", "Stars": "⭐⭐" },
+            { "fav": " ", "Band Name": "Iron Maiden", "Stars": "⭐" },
+            { "fav": " ", "Band Name": "Depeche mode", "Stars": "⭐⭐" },
+            { "fav": " ", "Band Name": "<a href=https://belzebong.bandcamp.com/>Belzebong</a>", "Stars": "⭐⭐⭐" },
+            { "fav": "❤️", "Band Name": "<a href=https://wazband.bandcamp.com/>Wąż</a>", "Stars": "⭐⭐⭐" },
+            { "fav": " ", "Band Name": "<a href=https://sunnataofficial.bandcamp.com/>Sunnata</a>", "Stars": "⭐" },
+            { "fav": " ", "Band Name": "<a href=https://dopelord.bandcamp.com/>Dopelord</a>", "Stars": "⭐⭐" },
+            { "fav": " ", "Band Name": "<a href=https://ceremonylong.bandcamp.com/>Ceremony Long</a>", "Stars": "⭐⭐⭐" },
+            { "fav": "❤️", "Band Name": "<a href=https://hermopolis.bandcamp.com/>Hermopolis</a>", "Stars": "⭐⭐" },
+            { "fav": " ", "Band Name": "<a href=https://pradmusic.bandcamp.com/>Prąd</a>", "Stars": "" },
+            { "fav": " ", "Band Name": "<a href=https://solartrip.bandcamp.com/>Solar Trip</a>", "Stars": "⭐⭐⭐" },
+            { "fav": " ", "Band Name": "<a href=https://maruntuka.bandcamp.com/>Maruntuka</a>", "Stars": "" },
+            { "fav": " ", "Band Name": "<a href=https://munband.bandcamp.com/>MuN</a>", "Stars": "" },
+            { "fav": " ", "Band Name": "<a href=https://weird.bandcamp.com/>Weird Tales</a>", "Stars": "" },
+            { "fav": " ", "Band Name": "<a href=https://hoggod.bandcamp.com/>Hoggod</a>", "Stars": "" },
+            { "fav": " ", "Band Name": "Vader", "Stars": "" },
+            { "fav": " ", "Band Name": "Frontside", "Stars": "" },
+            { "fav": " ", "Band Name": "<a href=https://festivaly.eu/pl/artysci/astral-nomad/1488132>Astral Nomad</a>", "Stars": "" },
+            { "fav": " ", "Band Name": "<a href=https://occulthandorder.bandcamp.com/>Occult Hand Order</a>", "Stars": "⭐⭐⭐" },
+            { "fav": " ", "Band Name": "<a href=https://jarzmo.bandcamp.com/>Jarzmo</a>", "Stars": "⭐⭐" },
+            { "fav": " ", "Band Name": "<a href=https://moonstonedoom.bandcamp.com/>Moonstone</a>", "Stars": "⭐" },
+            { "fav": " ", "Band Name": "<a href=https://thehowlingeye.bandcamp.com/>The Howling Eye</a>", "Stars": "" },
+            { "fav": " ", "Band Name": "<a href=https://piranhamusicpl.bandcamp.com/album/taxi-caveman/>Taxi Caveman</a>", "Stars": "" },
             
         ];
         const table = $('#bandTable').DataTable({
-            "columnDefs": [{ width: 200, targets: 0 }],
+            "columnDefs": [{ width: 200, targets: 1 }],
             "fixedColumns": true,
             "paging": false,
             "scrollCollapse": true,
@@ -126,10 +129,12 @@
             "searching": false, // Disable search
             "data": bands,
             "columns": [
+                { "data": "fav" },
                 { "data": "Band Name" },
                 { "data": "Stars" },
             ],
             "info": false,
+            "order": [[1, 'asc']],
         });
     </script>
 </body>
