@@ -49,6 +49,13 @@
         #bandTable td {
             width: auto;
         }
+
+        .row-number {
+            font-size: 10px;
+            text-align: center;
+            padding: 3px 8px;
+            font-weight: bold;
+        }      
     </style>
 </head>
 
@@ -61,7 +68,8 @@
             <table id="bandTable">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>№</th>
+                        <th>🤍</th>
                         <th>Band Name</th>
                         <th>Stars</th>
                     </tr>
@@ -120,7 +128,10 @@
             
         ];
         const table = $('#bandTable').DataTable({
-            "columnDefs": [{ width: 200, targets: 1 }],
+            "columnDefs": [
+                { width: 200, targets: 2 },
+                { targets: 0, orderable: false, className: 'row-number', }
+            ],
             "fixedColumns": true,
             "paging": false,
             "scrollCollapse": true,
@@ -131,13 +142,26 @@
             "searching": false, // Disable search
             "data": bands,
             "columns": [
+                {
+                    // Add a new column for row numbers
+                    "data": null,
+                    "render": function (data, type, row, meta) {
+                        return meta.row + 1; // Row numbers start from 1
+                    }
+                },
                 { "data": "fav" },
                 { "data": "Band Name" },
                 { "data": "Stars" },
             ],
             "info": false,
-            "order": [[1, 'asc']],
+            "order": [[2, 'asc']],
         });
+
+        table.on('order.dt search.dt', function () {
+        table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+            cell.innerHTML = i + 1;
+        });
+        }).draw();
     </script>
 </body>
 
